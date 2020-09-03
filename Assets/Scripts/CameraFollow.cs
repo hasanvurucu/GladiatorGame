@@ -15,7 +15,8 @@ public class CameraFollow : MonoBehaviour
 
     void LateUpdate() //For better camera follow after player moves in "Update" function.
     {
-        FollowPlayer();
+        if (GameObject.FindGameObjectWithTag(Tags.PLAYER_TAG).GetComponent<Animator>().enabled == true)
+            FollowPlayer();
     }
 
     void FollowPlayer()

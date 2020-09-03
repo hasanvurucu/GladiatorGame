@@ -27,8 +27,6 @@ public class PlayerMovement : MonoBehaviour
 
     void Move()
     {
-        print("The value is " + Input.GetAxis("Vertical"));
-
         if(Input.GetAxis(Axis.VERTICAL_AXIS) > 0) //Up arrow key
         {
             Vector3 moveDirection = transform.forward;
