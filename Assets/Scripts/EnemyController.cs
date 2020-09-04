@@ -27,13 +27,17 @@ public class EnemyController : MonoBehaviour
     private EnemyState enemy_State;
 
     public GameObject attackPoint;
-    
+
+    private CharacterSoundFX soundFX;
+
     void Awake()
     {
         enemy_Anim = GetComponent<CharacterAnimations>();
         navAgent = GetComponent<NavMeshAgent>();
 
         playerTarget = GameObject.FindGameObjectWithTag(Tags.PLAYER_TAG).transform;
+
+        soundFX = GetComponentInChildren<CharacterSoundFX>();
     }
 
     private void Start()
@@ -91,10 +95,14 @@ public class EnemyController : MonoBehaviour
             if(Random.Range(0, 2) > 0)
             {
                 enemy_Anim.Attack_1();
+
+                soundFX.Attack_1();
             }
             else
             {
                 enemy_Anim.Attack_2();
+
+                soundFX.Attack_2();
             }
 
             attack_Timer = 0f;

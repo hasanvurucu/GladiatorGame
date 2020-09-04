@@ -18,6 +18,16 @@ public class HealthScript : MonoBehaviour
     [SerializeField]
     private Image health_UI;
 
+    [HideInInspector]
+    public bool shieldActivated;
+
+    private CharacterSoundFX soundFX;
+
+    private void Awake()
+    {
+        soundFX = GetComponentInChildren<CharacterSoundFX>();
+    }
+
     private void Update()
     {
         if(playerDied)
@@ -28,6 +38,11 @@ public class HealthScript : MonoBehaviour
 
     public void ApplyDamage(float damage)
     {
+        if(shieldActivated)
+        {
+            return;
+        }
+
         health -= damage;
 
         if(health_UI != null)
@@ -37,6 +52,8 @@ public class HealthScript : MonoBehaviour
 
         if(health <= 0)
         {
+            soundFX.Die();
+            
             GetComponent<Animator>().enabled = false;
 
             StartCoroutine(AllowRotate()); //Starts death animation

@@ -66,6 +66,7 @@
     <Compile Include="Assets\Scripts\AttackDamage.cs" />
     <Compile Include="Assets\Scripts\CameraFollow.cs" />
     <Compile Include="Assets\Scripts\CharacterAnimations.cs" />
+    <Compile Include="Assets\Scripts\CharacterSoundFX.cs" />
     <Compile Include="Assets\Scripts\EnemyController.cs" />
     <Compile Include="Assets\Scripts\HealthScript.cs" />
     <Compile Include="Assets\Scripts\PlayerAttackInput.cs" />
